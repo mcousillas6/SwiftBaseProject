@@ -7,7 +7,30 @@
 		<key>SwiftBaseProject.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>4</integer>
+		</dict>
+		<key>SwiftBaseProjectStaging.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>97C614282056D7A3001FEE20</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>97C6143C2056D7A3001FEE20</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>97C614472056D7A4001FEE20</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

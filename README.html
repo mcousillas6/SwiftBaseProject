@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <style>
+/*--------------------------------------------------------------------------------------------- * Copyright (c) Microsoft Corporation. All rights reserved. * Licensed under the MIT License. See License.txt in the project root for license information. *--------------------------------------------------------------------------------------------*/ body { font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback"; font-size: 14px; padding: 0 12px; line-height: 22px; word-wrap: break-word; } body.scrollBeyondLastLine { margin-bottom: calc(100vh - 22px); } body.showEditorSelection .code-line { position: relative; } body.showEditorSelection .code-active-line:before, body.showEditorSelection .code-line:hover:before { content: ""; display: block; position: absolute; top: 0; left: -12px; height: 100%; } body.showEditorSelection li.code-active-line:before, body.showEditorSelection li.code-line:hover:before { left: -30px; } .vscode-light.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(0, 0, 0, 0.15); } .vscode-light.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(0, 0, 0, 0.40); } .vscode-dark.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 255, 255, 0.4); } .vscode-dark.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 255, 255, 0.60); } .vscode-high-contrast.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 160, 0, 0.7); } .vscode-high-contrast.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 160, 0, 1); } img { max-width: 100%; max-height: 100%; } a { color: #4080D0; text-decoration: none; } a:focus, input:focus, select:focus, textarea:focus { outline: 1px solid -webkit-focus-ring-color; outline-offset: -1px; } hr { border: 0; height: 2px; border-bottom: 2px solid; } h1 { padding-bottom: 0.3em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; } h1, h2, h3 { font-weight: normal; } h1 code, h2 code, h3 code, h4 code, h5 code, h6 code { font-size: inherit; line-height: auto; } a:hover { color: #4080D0; text-decoration: underline; } table { border-collapse: collapse; } table > thead > tr > th { text-align: left; border-bottom: 1px solid; } table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table > tbody > tr > td { padding: 5px 10px; } table > tbody > tr + tr > td { border-top: 1px solid; } blockquote { margin: 0 7px 0 5px; padding: 0 16px 0 10px; border-left: 5px solid; } code { font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback"; font-size: 14px; line-height: 19px; } body.wordWrap pre { white-space: pre-wrap; } .mac code { font-size: 12px; line-height: 18px; } code > div { padding: 16px; border-radius: 3px; overflow: auto; } /** Theming */ .vscode-light { color: rgb(30, 30, 30); } .vscode-dark { color: #DDD; } .vscode-high-contrast { color: white; } .vscode-light code { color: #A31515; } .vscode-dark code { color: #D7BA7D; } .vscode-light code > div { background-color: rgba(220, 220, 220, 0.4); } .vscode-dark code > div { background-color: rgba(10, 10, 10, 0.4); } .vscode-high-contrast code > div { background-color: rgb(0, 0, 0); } .vscode-high-contrast h1 { border-color: rgb(0, 0, 0); } .vscode-light table > thead > tr > th { border-color: rgba(0, 0, 0, 0.69); } .vscode-dark table > thead > tr > th { border-color: rgba(255, 255, 255, 0.69); } .vscode-light h1, .vscode-light hr, .vscode-light table > tbody > tr + tr > td { border-color: rgba(0, 0, 0, 0.18); } .vscode-dark h1, .vscode-dark hr, .vscode-dark table > tbody > tr + tr > td { border-color: rgba(255, 255, 255, 0.18); } .vscode-light blockquote, .vscode-dark blockquote { background: rgba(127, 127, 127, 0.1); border-color: rgba(0, 122, 204, 0.5); } .vscode-high-contrast blockquote { background: transparent; border-color: #fff; }
+</style>
+<style>
+/* Tomorrow Theme */ /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */ /* Original theme - https://github.com/chriskempson/tomorrow-theme */ /* Tomorrow Comment */ .hljs-comment, .hljs-quote { color: #8e908c; } /* Tomorrow Red */ .hljs-variable, .hljs-template-variable, .hljs-tag, .hljs-name, .hljs-selector-id, .hljs-selector-class, .hljs-regexp, .hljs-deletion { color: #c82829; } /* Tomorrow Orange */ .hljs-number, .hljs-built_in, .hljs-builtin-name, .hljs-literal, .hljs-type, .hljs-params, .hljs-meta, .hljs-link { color: #f5871f; } /* Tomorrow Yellow */ .hljs-attribute { color: #eab700; } /* Tomorrow Green */ .hljs-string, .hljs-symbol, .hljs-bullet, .hljs-addition { color: #718c00; } /* Tomorrow Blue */ .hljs-title, .hljs-section { color: #4271ae; } /* Tomorrow Purple */ .hljs-keyword, .hljs-selector-tag { color: #8959a8; } .hljs { display: block; overflow-x: auto; color: #4d4d4c; padding: 0.5em; } .hljs-emphasis { font-style: italic; } .hljs-strong { font-weight: bold; }
+</style>
+<style>
+ul.contains-task-list { padding-left: 0; } ul ul.contains-task-list { padding-left: 40px; } .task-list-item { list-style-type: none; } .task-list-item-checkbox { vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="swift-base-project">Swift Base Project</h1>
+<h2 id="introduction">Introduction</h2>
+<p>The goal of this project is to work as a template for iOS aplications, providing a base architecture, core frameworks and helpers to jumpstart development.</p>
+<h2 id="base-tooling">Base tooling</h2>
+<ul>
+<li><code>R.Swift</code> for xcode asset management.</li>
+<li><code>SwiftLint</code> for style checking.</li>
+<li><code>RxSwift</code> for data flow management.</li>
+<li><code>Alamofire</code> + <code>TBD</code> for networking.</li>
+<li><code>RealmSwift</code> + <code>RxRealm</code> for database management.</li>
+<li><code>Whisper</code> for in app notification-style messages.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>// TBD</p>
+<h2 id="configuring-development-and-production-flags">Configuring Development and Production Flags</h2>
+<p><a href="https://kitefaster.com/2016/01/23/how-to-specify-debug-and-release-flags-in-xcode-with-swift/">Check this article</a></p>
+<p>TL;DR:</p>
+<ol>
+<li>Open your Project Build Settings and search for “Swift</li>
+<li>Compiler – Custom Flags” … “Other Swift Flags”.</li>
+<li>Add “-DDEBUG” to the Debug section
+Add “-DRELEASE” to the Release section</li>
+</ol>
+<h2 id="architecture">Architecture</h2>
+<p>We are going to use MVVM + R, with some caveats:</p>
+<ul>
+<li>The model won't store business logic.</li>
+<li>The viewModel will access the models vía a <code>Controller</code>, this controller will be in charge of data management, both on the local database and the network.</li>
+<li>The router will be in charge of building the view, the viewModel and wiring them up.</li>
+</ul>
+<img src="file:///Users/mcousillas/projects/SwiftBaseProject/Architecture.png"/>
+<p>Sample</p>
+<pre class="hljs"><code><div><span class="hljs-comment">// The router is in charge of instancing the login view and it's viewModel</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AppRouter</span>: <span class="hljs-title">Router</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">setupInitialViewController</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">UIViewController</span> {
+    <span class="hljs-keyword">let</span> loginViewModel = <span class="hljs-type">LoginViewModel</span>()
+    <span class="hljs-keyword">let</span> loginView = <span class="hljs-type">R</span>.storyboard.login.instantiateInitialViewController()
+    loginView.setup(with: loginViewModel)
+    <span class="hljs-keyword">return</span> loginView
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">loginFinished</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-comment">// Code here to go to dashboard</span>
+  }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoginViewModel</span> </span>{
+
+  <span class="hljs-keyword">var</span> router: <span class="hljs-type">Router</span>?
+
+  <span class="hljs-keyword">var</span> userName = <span class="hljs-type">Variable</span>&lt;<span class="hljs-type">String</span>?&gt;()
+  <span class="hljs-keyword">var</span> password = <span class="hljs-type">Variable</span>&lt;<span class="hljs-type">String</span>?&gt;()
+  <span class="hljs-keyword">var</span> canSubmit = <span class="hljs-type">Variable</span>&lt;<span class="hljs-type">Bool</span>&gt;(<span class="hljs-literal">false</span>)
+
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> disposeBag: <span class="hljs-type">DisposeBag</span>()
+
+  <span class="hljs-keyword">init</span>() {
+    <span class="hljs-type">Observable</span>.combineLatest(
+      userName.asObservable(),
+      password.asObservable()
+    ).subscribe(onNext: { [<span class="hljs-keyword">unowned</span> <span class="hljs-keyword">self</span>] (name, pass) <span class="hljs-keyword">in</span>
+      <span class="hljs-keyword">self</span>.canSubmit.value = !name.isEmpty &amp;&amp; !pass.isEmpty
+    }).disposedBy(disposeBag)
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">login</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-type">UserController</span>.login(userName.value, password.value)
+      .subscribe(onNext: { [<span class="hljs-keyword">unowned</span> <span class="hljs-keyword">self</span>] result <span class="hljs-keyword">in</span>
+        router.loginFinished()
+      }).disposedBy(disposeBag)
+  }
+
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoginView</span>: <span class="hljs-title">UIViewController</span> </span>{
+  <span class="hljs-comment">// Outlets</span>
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> viewModel: <span class="hljs-type">LoginViewModel</span>?
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> disposeBag = <span class="hljs-type">DisposeBag</span>()
+
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">setup</span><span class="hljs-params">(with viewModel: LoginViewModel)</span></span> {
+    <span class="hljs-keyword">self</span>.viewModel = viewModel
+    <span class="hljs-comment">//Bind textfields to username and password here.</span>
+    <span class="hljs-comment">// Bind submit button to vm (this is pseudocode, almost sure it does not compile :D)</span>
+    submitBtn.rx.isEnabled(viewModel.canSubmit).disposedBy(disposeBag)
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">loginTapped</span><span class="hljs-params">()</span></span> {
+    viewModel.login()
+  }
+}
+
+<span class="hljs-comment">// In AppDelegate `didFinishLaunchingWithOptions`add this to start your app</span>
+
+window = <span class="hljs-type">UIWindow</span>(frame: <span class="hljs-type">UIScreen</span>.main.bounds)
+<span class="hljs-keyword">let</span> rootVC = appRouter.setupInitialViewController()
+window?.rootViewController = rootVC
+window?.makeKeyAndVisible()
+<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
+</div></code></pre>
+
+    </body>
+    </html>

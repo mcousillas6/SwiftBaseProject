@@ -1,0 +1,41 @@
+PODS:
+  - Alamofire (4.7.0)
+  - Moya/Core (10.0.2):
+    - Alamofire (~> 4.1)
+    - Result (~> 3.0)
+  - Moya/RxSwift (10.0.2):
+    - Moya/Core
+    - RxSwift (~> 4.0)
+  - R.swift (4.0.0):
+    - R.swift.Library (~> 4.0.0)
+  - R.swift.Library (4.0.0)
+  - Result (3.2.4)
+  - RxCocoa (4.1.2):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.1.2)
+  - SwiftLint (0.25.0)
+  - Whisper (6.0.2)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - Moya/RxSwift (~> 10.0)
+  - R.swift (~> 4.0.0)
+  - RxCocoa (~> 4.1.2)
+  - RxSwift (~> 4.1.2)
+  - SwiftLint (~> 0.25.0)
+  - Whisper (~> 6.0.2)
+
+SPEC CHECKSUMS:
+  Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
+  Moya: 2b0531a9fef318e0bc484030c3db1e6f279ccb66
+  R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
+  R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
+  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
+  RxSwift: e49536837d9901277638493ea537394d4b55f570
+  SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
+  Whisper: 169760fc4bab0abf24d5529f9276f95c25cf1025
+
+PODFILE CHECKSUM: 870c70a22c064bda7f5a9f52f4c7938821a4b724
+
+COCOAPODS: 1.4.0
