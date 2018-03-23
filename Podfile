@@ -14,8 +14,8 @@ target 'SwiftBaseProject' do
   pod 'Whisper', '~> 6.0.2'
 
   # Database management
-  # pod 'RxRealm', '~> 0.7.5'
-  # pod 'RealmSwift', '~> 3.1.1'
+  pod 'RxRealm', '~> 0.7.5'
+  pod 'RealmSwift', '~> 3.1.1'
 
   # Remote Image management
   # pod 'Kingfisher', '~> 4.6.3'

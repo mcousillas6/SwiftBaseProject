@@ -11,8 +11,7 @@
 		3F39E04567304153A0E9CF3C /* Pods_SwiftBaseProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2AEC1BFCBECE7611C3C144A /* Pods_SwiftBaseProjectTests.framework */; };
 		4D343B9BD0A2D92B54B9476F /* Pods_SwiftBaseProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E707058E741C48522D77D18 /* Pods_SwiftBaseProject.framework */; };
 		97B83C5C2056E73C0096B10A /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B83C5B2056E73C0096B10A /* BaseTargetType.swift */; };
-		97B83C5E2056E8040096B10A /* SampleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B83C5D2056E8040096B10A /* SampleService.swift */; };
-		97B83C602056EA8D0096B10A /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B83C5F2056EA8D0096B10A /* ServiceManager.swift */; };
+		97B83C602056EA8D0096B10A /* BaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B83C5F2056EA8D0096B10A /* BaseManager.swift */; };
 		97B83C632056EC3B0096B10A /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B83C622056EC3B0096B10A /* AppRouter.swift */; };
 		97B83C652056F9F60096B10A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B83C642056F9F60096B10A /* LoginViewModel.swift */; };
 		97B83C672056FDBE0096B10A /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97B83C662056FDBE0096B10A /* Dashboard.storyboard */; };
@@ -26,6 +25,12 @@
 		97C6144D2056D7A4001FEE20 /* SwiftBaseProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C6144C2056D7A4001FEE20 /* SwiftBaseProjectUITests.swift */; };
 		97D8232D2056DC7B00800FB1 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D8232C2056DC7B00800FB1 /* R.generated.swift */; };
 		97D823302056DE0100800FB1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D8232F2056DE0100800FB1 /* Constants.swift */; };
+		97E7D318205AA993009BA321 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E7D317205AA993009BA321 /* UserController.swift */; };
+		97E7D31A205AAA57009BA321 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E7D319205AAA57009BA321 /* User.swift */; };
+		97E7D31C205AABE9009BA321 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E7D31B205AABE9009BA321 /* UserService.swift */; };
+		97E7D31E205AAE2E009BA321 /* UserDataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E7D31D205AAE2E009BA321 /* UserDataAccess.swift */; };
+		97EBDECF205AD5C10085A836 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EBDECE205AD5C10085A836 /* DashboardViewModel.swift */; };
+		97EBDED4205ADE360085A836 /* BaseDataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EBDED3205ADE360085A836 /* BaseDataAccess.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,8 +56,7 @@
 		4C952A8E6EEEC6909A587B3B /* Pods-SwiftBaseProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBaseProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftBaseProjectUITests/Pods-SwiftBaseProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		63DE044007F426C7068DB8BC /* Pods-SwiftBaseProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBaseProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftBaseProjectTests/Pods-SwiftBaseProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		97B83C5B2056E73C0096B10A /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
-		97B83C5D2056E8040096B10A /* SampleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleService.swift; sourceTree = "<group>"; };
-		97B83C5F2056EA8D0096B10A /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		97B83C5F2056EA8D0096B10A /* BaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseManager.swift; sourceTree = "<group>"; };
 		97B83C622056EC3B0096B10A /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		97B83C642056F9F60096B10A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		97B83C662056FDBE0096B10A /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
@@ -70,8 +74,14 @@
 		97C614482056D7A4001FEE20 /* SwiftBaseProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftBaseProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97C6144C2056D7A4001FEE20 /* SwiftBaseProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBaseProjectUITests.swift; sourceTree = "<group>"; };
 		97C6144E2056D7A4001FEE20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		97D8232C2056DC7B00800FB1 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		97D8232C2056DC7B00800FB1 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = SwiftBaseProject/SupportFiles/R.generated.swift; sourceTree = SOURCE_ROOT; };
 		97D8232F2056DE0100800FB1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		97E7D317205AA993009BA321 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		97E7D319205AAA57009BA321 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		97E7D31B205AABE9009BA321 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		97E7D31D205AAE2E009BA321 /* UserDataAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataAccess.swift; sourceTree = "<group>"; };
+		97EBDECE205AD5C10085A836 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		97EBDED3205ADE360085A836 /* BaseDataAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataAccess.swift; sourceTree = "<group>"; };
 		9C0F561147B7782F09513410 /* Pods-SwiftBaseProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBaseProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftBaseProjectUITests/Pods-SwiftBaseProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A2AEC1BFCBECE7611C3C144A /* Pods_SwiftBaseProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftBaseProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9B94875E31222427017C279 /* Pods_SwiftBaseProjectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftBaseProjectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,9 +133,7 @@
 		97B83C5A2056E7260096B10A /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				97B83C5B2056E73C0096B10A /* BaseTargetType.swift */,
-				97B83C5D2056E8040096B10A /* SampleService.swift */,
-				97B83C5F2056EA8D0096B10A /* ServiceManager.swift */,
+				97E7D31B205AABE9009BA321 /* UserService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -163,20 +171,17 @@
 		97C6142B2056D7A3001FEE20 /* SwiftBaseProject */ = {
 			isa = PBXGroup;
 			children = (
+				97EBDED0205ADA3B0085A836 /* Core */,
+				97EBDECD205AD59E0085A836 /* SupportFiles */,
+				97EBDECA205AD5570085A836 /* Views */,
+				97E7D316205AA97D009BA321 /* DataAccess */,
+				97E7D315205AA972009BA321 /* Entities */,
+				97E7D314205AA96C009BA321 /* Controllers */,
 				97B83C612056EC2C0096B10A /* Routers */,
 				97B83C5A2056E7260096B10A /* Services */,
 				97D823312056DE6000800FB1 /* Extensions */,
 				97D8232E2056DDF100800FB1 /* Helpers */,
-				97D8232C2056DC7B00800FB1 /* R.generated.swift */,
-				97C6142C2056D7A3001FEE20 /* AppDelegate.swift */,
-				97C6142E2056D7A3001FEE20 /* LoginViewController.swift */,
-				97C614302056D7A3001FEE20 /* Main.storyboard */,
-				97C614332056D7A3001FEE20 /* Assets.xcassets */,
-				97C614352056D7A3001FEE20 /* LaunchScreen.storyboard */,
 				97C614382056D7A3001FEE20 /* Info.plist */,
-				97B83C642056F9F60096B10A /* LoginViewModel.swift */,
-				97B83C662056FDBE0096B10A /* Dashboard.storyboard */,
-				97B83C682056FDE20096B10A /* DashboardViewController.swift */,
 			);
 			path = SwiftBaseProject;
 			sourceTree = "<group>";
@@ -202,7 +207,6 @@
 		97D8232E2056DDF100800FB1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				97D8232F2056DE0100800FB1 /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -212,6 +216,81 @@
 			children = (
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		97E7D314205AA96C009BA321 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				97E7D317205AA993009BA321 /* UserController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		97E7D315205AA972009BA321 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				97E7D319205AAA57009BA321 /* User.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		97E7D316205AA97D009BA321 /* DataAccess */ = {
+			isa = PBXGroup;
+			children = (
+				97E7D31D205AAE2E009BA321 /* UserDataAccess.swift */,
+			);
+			path = DataAccess;
+			sourceTree = "<group>";
+		};
+		97EBDECA205AD5570085A836 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				97EBDECC205AD57C0085A836 /* Dashboard */,
+				97EBDECB205AD5670085A836 /* Login */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		97EBDECB205AD5670085A836 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				97C614302056D7A3001FEE20 /* Main.storyboard */,
+				97C6142E2056D7A3001FEE20 /* LoginViewController.swift */,
+				97B83C642056F9F60096B10A /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		97EBDECC205AD57C0085A836 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				97B83C682056FDE20096B10A /* DashboardViewController.swift */,
+				97B83C662056FDBE0096B10A /* Dashboard.storyboard */,
+				97EBDECE205AD5C10085A836 /* DashboardViewModel.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		97EBDECD205AD59E0085A836 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				97C614332056D7A3001FEE20 /* Assets.xcassets */,
+				97C6142C2056D7A3001FEE20 /* AppDelegate.swift */,
+				97D8232F2056DE0100800FB1 /* Constants.swift */,
+				97D8232C2056DC7B00800FB1 /* R.generated.swift */,
+				97C614352056D7A3001FEE20 /* LaunchScreen.storyboard */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		97EBDED0205ADA3B0085A836 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				97B83C5B2056E73C0096B10A /* BaseTargetType.swift */,
+				97B83C5F2056EA8D0096B10A /* BaseManager.swift */,
+				97EBDED3205ADE360085A836 /* BaseDataAccess.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		AACBDA40FC475399A14814E8 /* Frameworks */ = {
@@ -533,8 +612,11 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRealm/RxRealm.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Whisper/Whisper.framework",
 			);
@@ -543,8 +625,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRealm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Whisper.framework",
 			);
@@ -561,14 +646,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				97C6142F2056D7A3001FEE20 /* LoginViewController.swift in Sources */,
-				97B83C5E2056E8040096B10A /* SampleService.swift in Sources */,
 				97C6142D2056D7A3001FEE20 /* AppDelegate.swift in Sources */,
+				97E7D318205AA993009BA321 /* UserController.swift in Sources */,
 				97B83C5C2056E73C0096B10A /* BaseTargetType.swift in Sources */,
 				97B83C632056EC3B0096B10A /* AppRouter.swift in Sources */,
+				97EBDECF205AD5C10085A836 /* DashboardViewModel.swift in Sources */,
+				97EBDED4205ADE360085A836 /* BaseDataAccess.swift in Sources */,
+				97E7D31C205AABE9009BA321 /* UserService.swift in Sources */,
 				97D8232D2056DC7B00800FB1 /* R.generated.swift in Sources */,
-				97B83C602056EA8D0096B10A /* ServiceManager.swift in Sources */,
+				97B83C602056EA8D0096B10A /* BaseManager.swift in Sources */,
+				97E7D31A205AAA57009BA321 /* User.swift in Sources */,
 				97B83C692056FDE20096B10A /* DashboardViewController.swift in Sources */,
 				97D823302056DE0100800FB1 /* Constants.swift in Sources */,
+				97E7D31E205AAE2E009BA321 /* UserDataAccess.swift in Sources */,
 				97B83C652056F9F60096B10A /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

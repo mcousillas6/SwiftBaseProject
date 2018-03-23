@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lvZ-03-GFU">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Dashaboard View Controller-->
+        <scene sceneID="QIR-Kp-ihr">
+            <objects>
+                <viewController id="lvZ-03-GFU" customClass="DashaboardViewController" customModule="SwiftBaseProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8UL-mW-JMw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yo6-s6-SHj">
+                                <rect key="frame" x="0.0" y="310" width="375" height="68.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3H-af-fa0">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="38.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yx8-zH-6rd">
+                                        <rect key="frame" x="0.0" y="38.5" width="375" height="30"/>
+                                        <state key="normal" title="Logout"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99215686270000003" green="0.36078431370000003" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="yo6-s6-SHj" firstAttribute="centerY" secondItem="j03-wg-EAQ" secondAttribute="centerY" id="4OT-nV-gBK"/>
+                            <constraint firstItem="yo6-s6-SHj" firstAttribute="width" secondItem="8UL-mW-JMw" secondAttribute="width" id="774-pu-EPG"/>
+                            <constraint firstItem="yo6-s6-SHj" firstAttribute="centerX" secondItem="j03-wg-EAQ" secondAttribute="centerX" id="zuS-m3-eEs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="j03-wg-EAQ"/>
+                    </view>
+                    <connections>
+                        <outlet property="logoutBtn" destination="yx8-zH-6rd" id="mzr-LJ-tJe"/>
+                        <outlet property="nameLabel" destination="R3H-af-fa0" id="hP4-Mw-ubs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HDo-Hj-MOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="36" y="129"/>
+        </scene>
+    </scenes>
+</document>

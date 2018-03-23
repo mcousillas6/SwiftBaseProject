@@ -24,8 +24,19 @@ class AppRouter {
 
   func goToDashboard() {
     guard let dashboard = R.storyboard.dashboard.instantiateInitialViewController() else { return }
+    dashboard.viewModel = DashboardViewModel(router: self)
     let navigationController = UINavigationController(rootViewController: dashboard)
     rootViewController = navigationController
+    UIView.animate(withDuration: 0.3) { [weak self] in
+      self?.window?.rootViewController = navigationController
+    }
+  }
+
+  func logout() {
+    guard let login = R.storyboard.main.instantiateInitialViewController() else { return }
+    let navigationController = UINavigationController(rootViewController: login)
+    rootViewController = navigationController
+    login.viewModel = LoginViewModel(router: self)
     UIView.animate(withDuration: 0.3) { [weak self] in
       self?.window?.rootViewController = navigationController
     }
