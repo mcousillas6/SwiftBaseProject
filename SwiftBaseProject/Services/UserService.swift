@@ -42,7 +42,7 @@ extension UserService: TargetType {
     }
   }
 
-  var headers: [String : String]? {
+  var headers: [String: String]? {
     return [:]
   }
 

@@ -7,9 +7,9 @@
 //
 
 import Foundation
-import RxSwift
-import RxRealm
 import RealmSwift
+import RxRealm
+import RxSwift
 
 protocol DataAccess {
   // Empty for now
