@@ -48,121 +48,12 @@ The `Controllers` are in charge of managing the `Models`. This means that ideall
 
 The `Controllers` use 2 support classes, `Services` and `DataManagers`, one for networking access and other for Database respectively. If you don't have one of them (apps that only consume API data for example and don't save nothing locally) You can replace your `Controller` with a `Service` or `DataManager` and use that directly in your `ViewModel`.
 
-### Routers
-The routers are the components in charge of handling the application flows. This extracts all navigation logic from the viewControllers, making it far more reusable and encapsulated.
+### Router
+The router is the component in charge of handling the navigation stack of your entire application. For this matter, the router keeps track of your `rootViewController` and your `currentViewController` (the currently visible one).
 
-Also, the router is the one in charge of creating the corresponding `View` and its `ViewModel`. This way the keep the separation between both, where the `ViewModel` does not know which view is using it.
+To keep things tidy and isolated, the router does not know how to instantiate the screens that it presents. This is defined separately using the `Route` protocol. A `Route` is a component that encapsulates all the necessary logic to instantiate a `view`, with it's corresponding `viewModel` and any other parameters forwarded from other routes.
+Apart from the `Route`, you can set a `TransitionType` when you navigate to a route, this tells the navigator how the screen should be presenter (modally, pushed, resetting the stack, etc.).
 
-A router can have many child routers that handle sub-flows. For example, you can have an `ApplicationRouter` that has a `RegisterRouter` and a `LoggedInRouter`.
+So, to call a navigation action, the only thing we need to do is to call our Application's `Router` and call `.navigate` with the corresponding `Route` and `TransitionType`, as simple as that.
 
 <img src="./Architecture.png"/>
-
-Sample
-
-```swift
-// The router is in charge of instancing the login view and it's viewModel
-class AppRouter {
-
-  var rootViewController: UIViewController?
-  var window: UIWindow?
-
-  func setupInitialViewController() -> UIViewController {
-    guard let initialVC = R.storyboard.main.instantiateInitialViewController() else { return UIViewController() }
-    initialVC.viewModel = LoginViewModel(router: self)
-    let navigationController = UINavigationController(rootViewController: initialVC)
-    rootViewController = navigationController
-    return navigationController
-  }
-
-  func goToDashboard() {
-    guard let dashboard = R.storyboard.dashboard.instantiateInitialViewController() else { return }
-    let navigationController = UINavigationController(rootViewController: dashboard)
-    rootViewController = navigationController
-    UIView.animate(withDuration: 0.3) { [weak self] in
-      self?.window?.rootViewController = navigationController
-    }
-  }
-}
-
-class LoginViewModel {
-
-  private var disposeBag = DisposeBag()
-  private var router: AppRouter
-  var userName = Variable<String?>(nil)
-  var password = Variable<String?>(nil)
-  var canSubmit = Variable<Bool>(false)
-
-  init(router: AppRouter) {
-    self.router = router
-    Observable.combineLatest(
-      userName.asObservable(),
-      password.asObservable()
-    ).subscribe(
-      onNext: { [unowned self] (user, pass) in
-        guard let user = user, let pass = pass else { return }
-        self.canSubmit.value = !user.isEmpty && !pass.isEmpty
-      }
-    ).disposed(by: disposeBag)
-  }
-
-  func login() {
-    UserController.login(userName.value, password.value).subscribe(
-      onNext: { [weak self] result in
-        self?.router.goToDashboard()
-      }
-    ).disposed(by: disposeBag)
-  }
-}
-
-class LoginViewController: UIViewController {
-
-  @IBOutlet weak var userNameField: UITextField!
-  @IBOutlet weak var passwordField: UITextField!
-  @IBOutlet weak var loginBtn: UIButton!
-  var viewModel: LoginViewModel!
-  private var disposeBag = DisposeBag()
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    setup()
-  }
-
-  func setup() {
-    userNameField.rx
-      .text
-      .bind(to: viewModel.userName)
-      .disposed(by: disposeBag)
-    passwordField.rx
-      .text
-      .bind(to: viewModel.password)
-      .disposed(by: disposeBag)
-    viewModel.canSubmit.asObservable().subscribe(
-      onNext: { [unowned self] canSubmit in
-        self.loginBtn.isEnabled = canSubmit
-      }
-    ).disposed(by: disposeBag)
-    loginBtn.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
-  }
-
-  @objc func loginTapped() {
-    viewModel.login()
-  }
-
-}
-
-// In AppDelegate `didFinishLaunchingWithOptions`add this to start your app
-
-  func application(
-    _ application: UIApplication,
-    didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?
-  ) -> Bool {
-    window = UIWindow(frame: UIScreen.main.bounds)
-    let rootVC = appRouter.setupInitialViewController()
-    window?.rootViewController = rootVC
-    window?.makeKeyAndVisible()
-    appRouter.window = window
-    return true
-  }
-```
-
-
