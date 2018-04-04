@@ -12,19 +12,17 @@ import RxSwift
 class DashboardViewModel {
 
   private var disposeBag = DisposeBag()
-  private var router: AppRouter
   var user = Variable<User?>(nil)
 
-  init(router: AppRouter) {
-    self.router = router
+  init() {
     user.value = UserController.sharedInstance.currentUser
   }
 
   func logout() {
     UserController.sharedInstance.logout()
       .subscribe(
-        onNext: { [weak self] _ in
-          self?.router.logout()
+        onNext: { _ in
+          AppRouter.sharedInstance.navigate(to: LoginRoute.login, with: .changeRoot)
         }
       ).disposed(by: disposeBag)
   }

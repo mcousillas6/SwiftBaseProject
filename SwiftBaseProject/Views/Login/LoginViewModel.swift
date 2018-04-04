@@ -12,14 +12,12 @@ import RxSwift
 class LoginViewModel {
 
   private var disposeBag = DisposeBag()
-  private var router: AppRouter
   var userName = Variable<String?>(nil)
   var password = Variable<String?>(nil)
   var canSubmit = Variable<Bool>(false)
   var error = Variable<String?>(nil)
 
-  init(router: AppRouter) {
-    self.router = router
+  init() {
     Observable.combineLatest(
       userName.asObservable(),
       password.asObservable()
@@ -35,8 +33,8 @@ class LoginViewModel {
     guard let username = userName.value, let password = password.value else { return }
     UserController.sharedInstance.login(with: username, password: password)
       .subscribe(
-        onNext: { [weak self] _ in
-          self?.router.goToDashboard()
+        onNext: { _ in
+          AppRouter.sharedInstance.navigate(to: HomeRoute.dashboard, with: .reset)
         },
         onError: { [weak self] error in
           self?.error.value = error.localizedDescription

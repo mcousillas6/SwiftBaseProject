@@ -12,21 +12,16 @@ import RxRealm
 import RxSwift
 
 protocol DataAccess {
-  // Empty for now
   var realm: Realm? { get }
   var realmConfiguration: Realm.Configuration { get }
-
 }
 
 class BaseDataAccess: DataAccess {
-
   var disposeBag = DisposeBag()
-
   let realmConfiguration = Realm.Configuration()
 
   var realm: Realm? {
     guard let realm = try? Realm(configuration: realmConfiguration) else { return nil }
     return realm
   }
-
 }

@@ -25,6 +25,9 @@
 		97C6144D2056D7A4001FEE20 /* SwiftBaseProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C6144C2056D7A4001FEE20 /* SwiftBaseProjectUITests.swift */; };
 		97D8232D2056DC7B00800FB1 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D8232C2056DC7B00800FB1 /* R.generated.swift */; };
 		97D823302056DE0100800FB1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D8232F2056DE0100800FB1 /* Constants.swift */; };
+		97E53978207510B100D95BDA /* Routing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E53977207510B100D95BDA /* Routing.swift */; };
+		97E5397A20751D1000D95BDA /* LoginRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E5397920751D1000D95BDA /* LoginRoute.swift */; };
+		97E5397C20751D2800D95BDA /* DashBoardRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E5397B20751D2800D95BDA /* DashBoardRoute.swift */; };
 		97E7D318205AA993009BA321 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E7D317205AA993009BA321 /* UserController.swift */; };
 		97E7D31A205AAA57009BA321 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E7D319205AAA57009BA321 /* User.swift */; };
 		97E7D31C205AABE9009BA321 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E7D31B205AABE9009BA321 /* UserService.swift */; };
@@ -76,6 +79,9 @@
 		97C6144E2056D7A4001FEE20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97D8232C2056DC7B00800FB1 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = SwiftBaseProject/SupportFiles/R.generated.swift; sourceTree = SOURCE_ROOT; };
 		97D8232F2056DE0100800FB1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		97E53977207510B100D95BDA /* Routing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routing.swift; sourceTree = "<group>"; };
+		97E5397920751D1000D95BDA /* LoginRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRoute.swift; sourceTree = "<group>"; };
+		97E5397B20751D2800D95BDA /* DashBoardRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardRoute.swift; sourceTree = "<group>"; };
 		97E7D317205AA993009BA321 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		97E7D319205AAA57009BA321 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		97E7D31B205AABE9009BA321 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -142,6 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				97B83C622056EC3B0096B10A /* AppRouter.swift */,
+				97E5397920751D1000D95BDA /* LoginRoute.swift */,
+				97E5397B20751D2800D95BDA /* DashBoardRoute.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -286,6 +294,7 @@
 		97EBDED0205ADA3B0085A836 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				97E53977207510B100D95BDA /* Routing.swift */,
 				97B83C5B2056E73C0096B10A /* BaseTargetType.swift */,
 				97B83C5F2056EA8D0096B10A /* BaseManager.swift */,
 				97EBDED3205ADE360085A836 /* BaseDataAccess.swift */,
@@ -649,9 +658,11 @@
 				97C6142D2056D7A3001FEE20 /* AppDelegate.swift in Sources */,
 				97E7D318205AA993009BA321 /* UserController.swift in Sources */,
 				97B83C5C2056E73C0096B10A /* BaseTargetType.swift in Sources */,
+				97E53978207510B100D95BDA /* Routing.swift in Sources */,
 				97B83C632056EC3B0096B10A /* AppRouter.swift in Sources */,
 				97EBDECF205AD5C10085A836 /* DashboardViewModel.swift in Sources */,
 				97EBDED4205ADE360085A836 /* BaseDataAccess.swift in Sources */,
+				97E5397C20751D2800D95BDA /* DashBoardRoute.swift in Sources */,
 				97E7D31C205AABE9009BA321 /* UserService.swift in Sources */,
 				97D8232D2056DC7B00800FB1 /* R.generated.swift in Sources */,
 				97B83C602056EA8D0096B10A /* BaseManager.swift in Sources */,
@@ -660,6 +671,7 @@
 				97D823302056DE0100800FB1 /* Constants.swift in Sources */,
 				97E7D31E205AAE2E009BA321 /* UserDataAccess.swift in Sources */,
 				97B83C652056F9F60096B10A /* LoginViewModel.swift in Sources */,
+				97E5397A20751D1000D95BDA /* LoginRoute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

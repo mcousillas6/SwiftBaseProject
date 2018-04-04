@@ -26,12 +26,13 @@ class UserController {
       .filterSuccessfulStatusCodes()
       .map(User.self)
       .asObservable()
-//    let cache = Observable.just(User(username: "pedro", email: "a@a.com", phone: "asdasdasd"))
-//    // We should call serviceCall here, this cache is only to make it work as a mock
-    return serviceCall
-      .do(onNext: { [weak self] user in
-        self?.dataAccess.save(user: user)
-      })
+    let cache = Observable.just(User(username: "pedro", email: "a@a.com", phone: "asdasdasd"))
+    return cache
+    // We should call serviceCall here, this cache is only to make it work as a mock
+//    return serviceCall
+//      .do(onNext: { [weak self] user in
+//        self?.dataAccess.save(user: user)
+//      })
   }
 
   func logout() -> Observable<Void> {
