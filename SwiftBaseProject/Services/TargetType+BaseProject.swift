@@ -9,10 +9,6 @@
 import Foundation
 import Moya
 
-protocol BaseTargetType {
-
-}
-
 extension TargetType {
 
   var baseURL: URL { return Constants.apiBaseUrl }

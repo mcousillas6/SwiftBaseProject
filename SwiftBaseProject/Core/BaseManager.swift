@@ -10,24 +10,43 @@ import Foundation
 import Moya
 import RxSwift
 
-protocol ServiceManager {
+/**
+ Public protocol that defines the minimum API that a ServiceManager should expose.
 
+ The ServiceManager is the component in charge of handling al network request for
+ an specific TargetType.
+
+ Basic behaviour implemented using RxSwift is provided by the BaseManager class.
+*/
+public protocol ServiceManager {
+  /// The associated TargetType of the Manager.
   associatedtype ProviderType: TargetType
-
+  /// The MoyaProvider instance used to make the network requests.
   var provider: MoyaProvider<ProviderType> { get }
-
 }
 
-class BaseManager<T>: ServiceManager where T: TargetType {
+/**
+ Base Manager class that implements generic behaviour to
+ be extendended and used by subclassing it.
 
-  typealias ProviderType = T
+ The base manager has an associated TargetType, this means
+ that you should have **one and only one** manager for each TargetType.
+
+ This base implementation provides helpers to make requests using RxSwift
+ with automatic encoding if you provide a propper model as the expected result type.
+*/
+open class BaseManager<T>: ServiceManager where T: TargetType {
+  public typealias ProviderType = T
 
   private var sharedProvider: MoyaProvider<T>!
 
-  required init() {
-  }
+  public required init() {}
 
-  var provider: MoyaProvider<T> {
+  /**
+   Default provider implementation as a singleton. It provides networking
+   loggin out of the box and you can override it if you want to add more middleware.
+ */
+  open var provider: MoyaProvider<T> {
     guard let provider = sharedProvider else {
       self.sharedProvider = MoyaProvider<T>(
         plugins: [
@@ -39,20 +58,34 @@ class BaseManager<T>: ServiceManager where T: TargetType {
     return provider
   }
 
-  func request<T>(_ target: ProviderType, at keyPath: String? = nil) -> Observable<T> where T: Codable {
+  /**
+   Makes a request to the provided target and tries to decode its response
+   using the provided keyPath and return type and returning it as an Observable.
+   - Parameters:
+      - target: The TargetType used to make the request.
+      - keyPath: The keypath used to decode from JSON (if passed nil, it will try to decode from the root).
+  */
+  open func request<T>(_ target: ProviderType, at keyPath: String? = nil) -> Observable<T> where T: Codable {
     return provider.rx.request(target)
       .filterSuccessfulStatusCodes()
       .map(T.self, atKeyPath: keyPath, using: JSONDecoder())
       .asObservable()
   }
-
-  func requestCollection<T>(_ target: ProviderType, at keyPath: String? = nil) -> Observable<[T]> where T: Codable {
+  /**
+   Makes a request to the provided target and tries to decode its response as an array
+   using the provided keyPath and return type and returning it as an Observable.
+   - Parameters:
+   - target: The TargetType used to make the request.
+   - keyPath: The keypath used to decode from JSON (if passed nil, it will try to decode from the root).
+   */
+  open func requestCollection<T>(_ target: ProviderType, at keyPath: String? = nil) -> Observable<[T]> where T: Codable {
     return provider.rx.request(target)
       .filterSuccessfulStatusCodes()
       .map([T].self, atKeyPath: keyPath, using: JSONDecoder())
       .asObservable()
   }
 
+  /// Helper to use as middleware to pretty print the JSON response.
   private func JSONResponseDataFormatter(_ data: Data) -> Data {
     do {
       let dataAsJSON = try JSONSerialization.jsonObject(with: data)
@@ -62,5 +95,4 @@ class BaseManager<T>: ServiceManager where T: TargetType {
       return data
     }
   }
-
 }

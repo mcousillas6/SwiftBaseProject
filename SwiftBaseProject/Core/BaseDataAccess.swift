@@ -11,16 +11,32 @@ import RealmSwift
 import RxRealm
 import RxSwift
 
-protocol DataAccess {
+/**
+ Public protocol that defines the minimum API that a DataAccess component should expose.
+
+ The DataAccess is the component in charge of handling al databases requests for
+ an specific Entity.
+
+ Basic behaviour and configuration is provided by the BaseDataAccess class.
+*/
+public protocol DataAccess {
+  /// The realm instance used to connect to the database
   var realm: Realm? { get }
+  /// The realm configuration used to instantiate realm.
   var realmConfiguration: Realm.Configuration { get }
 }
 
-class BaseDataAccess: DataAccess {
-  var disposeBag = DisposeBag()
-  let realmConfiguration = Realm.Configuration()
+/**
+ Base DataAccess class that implements generic behaviour to
+ be extendended and used by subclassing it.
 
-  var realm: Realm? {
+ This base implementation provides some basic configuration to conect to Realm.
+ */
+open class BaseDataAccess: DataAccess {
+  open var disposeBag = DisposeBag()
+  open let realmConfiguration = Realm.Configuration()
+
+  open var realm: Realm? {
     guard let realm = try? Realm(configuration: realmConfiguration) else { return nil }
     return realm
   }

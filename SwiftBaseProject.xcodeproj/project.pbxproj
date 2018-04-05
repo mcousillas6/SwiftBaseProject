@@ -10,7 +10,9 @@
 		2BB2A53F2AC6C5FDDAE1E62C /* Pods_SwiftBaseProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B94875E31222427017C279 /* Pods_SwiftBaseProjectUITests.framework */; };
 		3F39E04567304153A0E9CF3C /* Pods_SwiftBaseProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2AEC1BFCBECE7611C3C144A /* Pods_SwiftBaseProjectTests.framework */; };
 		4D343B9BD0A2D92B54B9476F /* Pods_SwiftBaseProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E707058E741C48522D77D18 /* Pods_SwiftBaseProject.framework */; };
-		97B83C5C2056E73C0096B10A /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B83C5B2056E73C0096B10A /* BaseTargetType.swift */; };
+		97139D09207654FB007B1C65 /* NibInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97139D08207654FB007B1C65 /* NibInstantiable.swift */; };
+		97139D0B20765A0D007B1C65 /* UIView+ConstraintsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97139D0A20765A0D007B1C65 /* UIView+ConstraintsHelpers.swift */; };
+		97B83C5C2056E73C0096B10A /* TargetType+BaseProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B83C5B2056E73C0096B10A /* TargetType+BaseProject.swift */; };
 		97B83C602056EA8D0096B10A /* BaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B83C5F2056EA8D0096B10A /* BaseManager.swift */; };
 		97B83C632056EC3B0096B10A /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B83C622056EC3B0096B10A /* AppRouter.swift */; };
 		97B83C652056F9F60096B10A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B83C642056F9F60096B10A /* LoginViewModel.swift */; };
@@ -58,7 +60,9 @@
 		3A3B7D30CFACE34BE301BBF2 /* Pods-SwiftBaseProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBaseProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftBaseProjectTests/Pods-SwiftBaseProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		4C952A8E6EEEC6909A587B3B /* Pods-SwiftBaseProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBaseProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftBaseProjectUITests/Pods-SwiftBaseProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		63DE044007F426C7068DB8BC /* Pods-SwiftBaseProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBaseProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftBaseProjectTests/Pods-SwiftBaseProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
-		97B83C5B2056E73C0096B10A /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
+		97139D08207654FB007B1C65 /* NibInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibInstantiable.swift; sourceTree = "<group>"; };
+		97139D0A20765A0D007B1C65 /* UIView+ConstraintsHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ConstraintsHelpers.swift"; sourceTree = "<group>"; };
+		97B83C5B2056E73C0096B10A /* TargetType+BaseProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TargetType+BaseProject.swift"; sourceTree = "<group>"; };
 		97B83C5F2056EA8D0096B10A /* BaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseManager.swift; sourceTree = "<group>"; };
 		97B83C622056EC3B0096B10A /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		97B83C642056F9F60096B10A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -136,9 +140,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		97139D07207654D1007B1C65 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				97139D08207654FB007B1C65 /* NibInstantiable.swift */,
+				97139D0A20765A0D007B1C65 /* UIView+ConstraintsHelpers.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		97B83C5A2056E7260096B10A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				97B83C5B2056E73C0096B10A /* TargetType+BaseProject.swift */,
 				97E7D31B205AABE9009BA321 /* UserService.swift */,
 			);
 			path = Services;
@@ -294,8 +308,8 @@
 		97EBDED0205ADA3B0085A836 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				97139D07207654D1007B1C65 /* View */,
 				97E53977207510B100D95BDA /* Routing.swift */,
-				97B83C5B2056E73C0096B10A /* BaseTargetType.swift */,
 				97B83C5F2056EA8D0096B10A /* BaseManager.swift */,
 				97EBDED3205ADE360085A836 /* BaseDataAccess.swift */,
 			);
@@ -657,9 +671,10 @@
 				97C6142F2056D7A3001FEE20 /* LoginViewController.swift in Sources */,
 				97C6142D2056D7A3001FEE20 /* AppDelegate.swift in Sources */,
 				97E7D318205AA993009BA321 /* UserController.swift in Sources */,
-				97B83C5C2056E73C0096B10A /* BaseTargetType.swift in Sources */,
+				97B83C5C2056E73C0096B10A /* TargetType+BaseProject.swift in Sources */,
 				97E53978207510B100D95BDA /* Routing.swift in Sources */,
 				97B83C632056EC3B0096B10A /* AppRouter.swift in Sources */,
+				97139D09207654FB007B1C65 /* NibInstantiable.swift in Sources */,
 				97EBDECF205AD5C10085A836 /* DashboardViewModel.swift in Sources */,
 				97EBDED4205ADE360085A836 /* BaseDataAccess.swift in Sources */,
 				97E5397C20751D2800D95BDA /* DashBoardRoute.swift in Sources */,
@@ -670,6 +685,7 @@
 				97B83C692056FDE20096B10A /* DashboardViewController.swift in Sources */,
 				97D823302056DE0100800FB1 /* Constants.swift in Sources */,
 				97E7D31E205AAE2E009BA321 /* UserDataAccess.swift in Sources */,
+				97139D0B20765A0D007B1C65 /* UIView+ConstraintsHelpers.swift in Sources */,
 				97B83C652056F9F60096B10A /* LoginViewModel.swift in Sources */,
 				97E5397A20751D1000D95BDA /* LoginRoute.swift in Sources */,
 			);
