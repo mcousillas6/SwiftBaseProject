@@ -10,7 +10,7 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+  static let usernameKey = "com.base.project.username"
   var window: UIWindow?
 
   func application(
@@ -24,4 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
 
+  static func getUserNameFromDefaults() -> String? {
+    return UserDefaults.standard.string(forKey: AppDelegate.usernameKey)
+  }
+
+  static func saveUserNameOnDefaults(username: String) {
+    UserDefaults.standard.set(username, forKey: usernameKey)
+  }
 }

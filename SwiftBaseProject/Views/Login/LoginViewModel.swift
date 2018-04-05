@@ -17,7 +17,8 @@ class LoginViewModel {
   var canSubmit = Variable<Bool>(false)
   var error = Variable<String?>(nil)
 
-  init() {
+  init(with username: String?) {
+    userName.value = username
     Observable.combineLatest(
       userName.asObservable(),
       password.asObservable()
@@ -34,6 +35,7 @@ class LoginViewModel {
     UserController.sharedInstance.login(with: username, password: password)
       .subscribe(
         onNext: { _ in
+          AppDelegate.saveUserNameOnDefaults(username: username)
           AppRouter.sharedInstance.navigate(to: HomeRoute.dashboard, with: .reset)
         },
         onError: { [weak self] error in

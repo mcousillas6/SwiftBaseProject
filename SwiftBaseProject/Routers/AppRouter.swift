@@ -14,7 +14,7 @@ class AppRouter: BaseRouter {
 
   init() {
     let user = UserController.sharedInstance.currentUser
-    let initialRoute: Route = user != nil ? HomeRoute.dashboard : LoginRoute.login
+    let initialRoute: Route = user != nil ? HomeRoute.dashboard : LoginRoute.login(username: AppDelegate.getUserNameFromDefaults())
     super.init(with: initialRoute)
   }
 

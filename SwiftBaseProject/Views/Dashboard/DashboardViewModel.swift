@@ -22,7 +22,7 @@ class DashboardViewModel {
     UserController.sharedInstance.logout()
       .subscribe(
         onNext: { _ in
-          AppRouter.sharedInstance.navigate(to: LoginRoute.login, with: .changeRoot)
+          AppRouter.sharedInstance.navigate(to: LoginRoute.login(username: AppDelegate.getUserNameFromDefaults()), with: .changeRoot)
         }
       ).disposed(by: disposeBag)
   }

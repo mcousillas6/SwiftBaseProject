@@ -26,6 +26,7 @@ class LoginViewController: UIViewController {
   }
 
   func setup() {
+    userNameField.text = viewModel.userName.value
     userNameField.rx
       .text
       .bind(to: viewModel.userName)
