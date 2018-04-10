@@ -22,8 +22,8 @@ public class BaseRouter: Router {
   public var currentViewController: UIViewController?
 
   public required init(with route: Route) {
-    if let nav = route.screen as? UINavigationController {
-      rootViewController = nav
+    if let navigation = route.screen as? UINavigationController {
+      rootViewController = navigation
     } else {
       let viewController = route.screen
       rootViewController = UINavigationController(rootViewController: viewController)
@@ -96,9 +96,9 @@ public extension Router {
       currentViewController = viewController
     case .changeRoot:
       UIView.animate(withDuration: 0.3) { [weak self] in
-        if let nav = (viewController as? UINavigationController) {
-          UIApplication.shared.keyWindow?.rootViewController = nav
-          self?.rootViewController = nav
+        if let navigation = (viewController as? UINavigationController) {
+          UIApplication.shared.keyWindow?.rootViewController = navigation
+          self?.rootViewController = navigation
           self?.currentViewController = self?.rootViewController?.topViewController
         } else {
           let navigationController = UINavigationController(rootViewController: viewController)

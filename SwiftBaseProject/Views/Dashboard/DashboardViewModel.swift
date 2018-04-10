@@ -7,15 +7,16 @@
 //
 
 import Foundation
+import RxCocoa
 import RxSwift
 
 class DashboardViewModel {
 
   private var disposeBag = DisposeBag()
-  var user = Variable<User?>(nil)
+  var user = BehaviorRelay<User?>(value: nil)
 
   init() {
-    user.value = UserController.sharedInstance.currentUser
+    user.accept(UserController.sharedInstance.currentUser)
   }
 
   func logout() {

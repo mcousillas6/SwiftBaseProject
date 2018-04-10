@@ -7,25 +7,26 @@
 //
 
 import Foundation
+import RxCocoa
 import RxSwift
 
 class LoginViewModel {
 
   private var disposeBag = DisposeBag()
-  var userName = Variable<String?>(nil)
-  var password = Variable<String?>(nil)
-  var canSubmit = Variable<Bool>(false)
-  var error = Variable<String?>(nil)
+  var userName = BehaviorRelay<String?>(value: nil)
+  var password = BehaviorRelay<String?>(value: nil)
+  var canSubmit = BehaviorRelay<Bool>(value: false)
+  var error = BehaviorRelay<String?>(value: nil)
 
   init(with username: String?) {
-    userName.value = username
+    userName.accept(username)
     Observable.combineLatest(
       userName.asObservable(),
       password.asObservable()
     ).subscribe(
       onNext: { [unowned self] (user, pass) in
         guard let user = user, let pass = pass else { return }
-        self.canSubmit.value = !user.isEmpty && !pass.isEmpty
+        self.canSubmit.accept(!user.isEmpty && !pass.isEmpty)
       }
     ).disposed(by: disposeBag)
   }
@@ -39,7 +40,7 @@ class LoginViewModel {
           AppRouter.sharedInstance.navigate(to: HomeRoute.dashboard, with: .reset)
         },
         onError: { [weak self] error in
-          self?.error.value = error.localizedDescription
+          self?.error.accept(error.localizedDescription)
         }
       ).disposed(by: disposeBag)
   }

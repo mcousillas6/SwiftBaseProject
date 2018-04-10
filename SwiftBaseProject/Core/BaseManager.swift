@@ -71,6 +71,7 @@ open class BaseManager<T>: ServiceManager where T: TargetType {
       .map(T.self, atKeyPath: keyPath, using: JSONDecoder())
       .asObservable()
   }
+
   /**
    Makes a request to the provided target and tries to decode its response as an array
    using the provided keyPath and return type and returning it as an Observable.
