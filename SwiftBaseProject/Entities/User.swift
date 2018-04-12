@@ -14,12 +14,3 @@ struct User: Codable {
   let email: String
   let phone: String?
 }
-
-extension User {
-
-  enum CodingKeys: String, CodingKey {
-    case username = "user_name"
-    case email = "email"
-    case phone = "phone"
-  }
-}

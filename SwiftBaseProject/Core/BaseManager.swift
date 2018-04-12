@@ -23,6 +23,8 @@ public protocol ServiceManager {
   associatedtype ProviderType: TargetType
   /// The MoyaProvider instance used to make the network requests.
   var provider: MoyaProvider<ProviderType> { get }
+  /// The JSON decoding strategy used for JSON Responses.
+  var jsonDecoder: JSONDecoder { get }
 }
 
 /**
@@ -59,6 +61,17 @@ open class BaseManager<T>: ServiceManager where T: TargetType {
   }
 
   /**
+   Default JSON decoder setup, uses the most common case of keyDecoding,
+   converting from camel_case to snakeCase before attempting to match
+   override this var if you need to customize your JSON decoder.
+  */
+  open var jsonDecoder: JSONDecoder {
+    let decoder = JSONDecoder()
+    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    return decoder
+  }
+
+  /**
    Makes a request to the provided target and tries to decode its response
    using the provided keyPath and return type and returning it as an Observable.
    - Parameters:
@@ -68,7 +81,7 @@ open class BaseManager<T>: ServiceManager where T: TargetType {
   open func request<T>(_ target: ProviderType, at keyPath: String? = nil) -> Observable<T> where T: Codable {
     return provider.rx.request(target)
       .filterSuccessfulStatusCodes()
-      .map(T.self, atKeyPath: keyPath, using: JSONDecoder())
+      .map(T.self, atKeyPath: keyPath, using: jsonDecoder)
       .asObservable()
   }
 
@@ -82,7 +95,7 @@ open class BaseManager<T>: ServiceManager where T: TargetType {
   open func requestCollection<T>(_ target: ProviderType, at keyPath: String? = nil) -> Observable<[T]> where T: Codable {
     return provider.rx.request(target)
       .filterSuccessfulStatusCodes()
-      .map([T].self, atKeyPath: keyPath, using: JSONDecoder())
+      .map([T].self, atKeyPath: keyPath, using: jsonDecoder)
       .asObservable()
   }
 
